@@ -52,3 +52,10 @@ variable "public-subnets_name" {
     type        = string
     description = "Public subnet name"
 }
+
+variable "inbound_ports" {
+  type        = list(number)
+  description = "inbound ports for sg"
+}
+
+
