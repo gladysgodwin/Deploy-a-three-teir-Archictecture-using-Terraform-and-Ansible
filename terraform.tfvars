@@ -9,3 +9,4 @@ subnet_cidrs_priv   = [ "18.0.3.0/24", "18.0.4.0/24" ]
 igw_name            = "love-igw"
 pub-rt              = "love-publicRt"
 priv-rt             = "love-privRt"
+inbound_ports       = [ "22, 80, 443" ]
