@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "gladys_asg" {
-  vpc_zone_identifier = var.subnet_cidrs_priv[0]
+  vpc_zone_identifier = var.subnet_cidrs_priv
   desired_capacity    = 3
   max_size            = 3
   min_size            = 1
