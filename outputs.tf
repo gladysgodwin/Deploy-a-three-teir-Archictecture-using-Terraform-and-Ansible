@@ -1,6 +1,6 @@
 output "vpc_id" {
   description = "ID of project VPC"
-  value       = aws_vpc.vpc_id
+  value       = aws_vpc.love_vpc.id
 }
 output "my_lb_arn" {
   description = "My Load Balancer arn"
