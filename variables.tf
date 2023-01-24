@@ -58,4 +58,28 @@ variable "inbound_ports" {
   description = "inbound ports for sg"
 }
 
+variable "alb-sg" {
+  type        = string
+  description = "sg name"
+}
+
+variable "domain" {
+  type        = string
+  description = "domain name"
+}
+
+variable "a-record" {
+  type        = string
+  description = "subdomain"
+}
+
+variable "ami" {
+  type        = string
+  description = "instance ami"
+}
+
+variable "instance_type" {
+  type        = string
+  description = "instance type"
+}
 
