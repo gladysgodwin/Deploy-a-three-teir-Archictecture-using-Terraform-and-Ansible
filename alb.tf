@@ -32,3 +32,4 @@ resource "aws_lb_listener_rule" "dom-rule" {
       values = ["terraform-test.praestohealth.com.ng"]
     }
   }
+}
