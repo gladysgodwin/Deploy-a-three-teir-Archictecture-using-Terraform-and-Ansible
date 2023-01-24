@@ -1,4 +1,5 @@
 terraform {
+  /*
   cloud {
     organization = "AltSchoolProject-byGladys"
 
@@ -6,6 +7,7 @@ terraform {
         name = "Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible"
     }
   }
+  */
   required_providers {
     aws = {
       source  = "hashicorp/aws"
