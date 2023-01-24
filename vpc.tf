@@ -58,18 +58,20 @@ resource "aws_route_table" "my_public_RT" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.love-igw.id
   }
-
+ /*
   tags {
     Name = var.pub-rt
   }
+  */
 }
 
 resource "aws_route_table" "my_private_RT" {
   vpc_id = aws_vpc.love_vpc.id
-
+ /*
   tags {
     Name = var.priv-rt
   }
+  */
 }
 
 # Create Public Subnet Association
