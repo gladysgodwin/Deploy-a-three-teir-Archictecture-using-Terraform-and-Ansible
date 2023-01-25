@@ -11,7 +11,8 @@ resource "aws_lb" "my-alb" {
 }
 
 resource "aws_lb_listener" "lb_lst" {
-  load_balancer_arn = aws_lb.my-alb.arn
+  load_balancer_arn = aws_lb.my-alb[count.index]
+  #aws_lb.my-alb.arn
   port              = "80"
   protocol          = "HTTP"
 
