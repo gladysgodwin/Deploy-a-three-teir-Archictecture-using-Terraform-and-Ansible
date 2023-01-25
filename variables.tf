@@ -90,11 +90,11 @@ variable "pubssh-key" {
 }
 
 variable "pub-sub-id" {
-  type        = string
+  type        = list(string)
   description = "public subnets"
 }
 
 variable "priv-sub-id" {
-  type        = string
+  type        = list(string)
   description = "private subnets"
 }
