@@ -1,8 +1,8 @@
 #Create Load Balancer
 
 resource "aws_lb" "my-alb" {
-  
   count          = "${length(var.subnet_cidrs_public)}"
+  
   name               = "my-alb"
   internal           = false
   load_balancer_type = "application"
