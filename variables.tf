@@ -93,3 +93,8 @@ variable "pub-sub-id" {
   type        = string
   description = "public subnets"
 }
+
+variable "priv-sub-id" {
+  type        = string
+  description = "private subnets"
+}
