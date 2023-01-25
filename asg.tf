@@ -1,5 +1,6 @@
 resource "aws_autoscaling_group" "gladys_asg" {
-  vpc_zone_identifier = "${element(aws_subnet.love-private-subnt.*.id, count.index)}"
+  
+  vpc_zone_identifier =  aws_subnet.love-private-subnt[count.index]
   desired_capacity    = 3
   max_size            = 3
   min_size            = 1
