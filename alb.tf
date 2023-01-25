@@ -1,8 +1,6 @@
 #Create Load Balancer
 
-resource "aws_lb" "my-alb" {
-  count = "${length(aws_subnet.love-public-subnt.id)}"
-  
+resource "aws_lb" "my-alb" { 
   name               = "my-alb"
   internal           = false
   load_balancer_type = "application"
