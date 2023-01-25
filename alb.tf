@@ -11,6 +11,8 @@ resource "aws_lb" "my-alb" {
 }
 
 resource "aws_lb_listener" "lb_lst" {
+  count          = "${length(var.subnet_cidrs_public)}"
+  
   load_balancer_arn = aws_lb.my-alb[count.index]
   #aws_lb.my-alb.arn
   port              = "80"
