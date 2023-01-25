@@ -83,3 +83,8 @@ variable "instance_type" {
   description = "instance type"
 }
 
+variable "pubssh-key" {
+  type        = string
+  description = "public ssh key"
+  sensitive   = true
+}
