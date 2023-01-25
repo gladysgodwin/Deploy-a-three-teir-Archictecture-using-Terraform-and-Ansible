@@ -3,13 +3,13 @@ resource "aws_route53_zone" "my_hosted_zone" {
 }
 
 resource "aws_route53_record" "terraform-test" {
+  count          = "${length(var.subnet_cidrs_public)}"
+  
   zone_id = aws_route53_zone.my_hosted_zone.zone_id
   name    = var.a-record
   type    = "A"
 
   alias {
-    count          = "${length(var.subnet_cidrs_public)}"
-    
     name                   = aws_lb.my-alb[count.index]
     #aws_lb.my-alb.dns_name
     zone_id                = aws_lb.my-alb[count.index]
