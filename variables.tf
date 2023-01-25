@@ -88,3 +88,8 @@ variable "pubssh-key" {
   description = "public ssh key"
   sensitive   = true
 }
+
+variable "pub-sub-id" {
+  type        = string
+  description = "public subnets"
+}
