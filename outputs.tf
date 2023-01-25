@@ -8,8 +8,9 @@ output "my_lb_arn" {
   value       = aws_lb.my-alb[count.index]
   aws_lb.my-alb.arn
 }
-*/
+
 output "public-ip" {
   description = "My public ip"
   value       =  aws_autoscaling_group.gladys_asg.*.public_ip
 }
+*/
