@@ -4,7 +4,8 @@ output "vpc_id" {
 }
 output "my_lb_arn" {
   description = "My Load Balancer arn"
-  value       =  aws_lb.my-alb.arn
+  value       = aws_lb.my-alb[count.index]
+  # aws_lb.my-alb.arn
 }
 
 output "public-ip" {
