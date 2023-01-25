@@ -25,8 +25,10 @@ resource "aws_lb_listener" "lb_lst" {
 }
 
 resource "aws_lb_listener_rule" "dom-rule" {
-  listener_arn = aws_lb_listener.lb_lst.arn
-
+  count          = "${length(var.subnet_cidrs_public)}"
+  
+  listener_arn = aws_lb_listener.lb_lst[count.index]
+#aws_lb_listener.lb_lst.arn
   action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.my-alb-tg.arn
