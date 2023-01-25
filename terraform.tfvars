@@ -15,3 +15,5 @@ domain              = "praestohealth.com.ng"
 a-record            = "terraform-test.praestohealth.com.ng"
 instance_type       = "t2.micro"
 ami                 = "ami-0b5eea76982371e91"
+pub-sub-id          = [ "subnet-00b9f7848221cf584", "subnet-03992494d6f90712d" ]
+priv-sub-id         = [ "subnet-043f8649e58158774", "subnet-06d6105c082039b46" ]
