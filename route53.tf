@@ -8,8 +8,12 @@ resource "aws_route53_record" "terraform-test" {
   type    = "A"
 
   alias {
-    name                   = aws_lb.my-alb.dns_name
-    zone_id                = aws_lb.my-alb.zone_id
+    count          = "${length(var.subnet_cidrs_public)}"
+    
+    name                   = aws_lb.my-alb[count.index]
+    #aws_lb.my-alb.dns_name
+    zone_id                = aws_lb.my-alb[count.index]
+    #aws_lb.my-alb.zone_id
     evaluate_target_health = true
   }
 }
