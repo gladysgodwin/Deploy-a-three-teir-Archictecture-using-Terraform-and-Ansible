@@ -3,11 +3,11 @@
 provisioner “remote-exec” {
   connection {
   user = “ec2-user”
-  private_key = “${file(“/root/.ssh/mykey.pem”)}”
+  private_key = “${file('/root/.ssh/mykey.pem')}”
   }
 }
 inline = [
-amazon-linux-extras install epel yum install ansible git -y”,
+amazon-linux-extras install epel yum install ansible git -y,
 ]
 /*
 provisioner “local-exec” {
