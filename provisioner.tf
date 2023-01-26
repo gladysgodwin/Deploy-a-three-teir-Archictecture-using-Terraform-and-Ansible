@@ -1,5 +1,5 @@
 # Provisioner for applying Ansible playbook
-/*
+
 provisioner “remote-exec” {
   connection {
   user = “ec2-user”
@@ -9,6 +9,7 @@ provisioner “remote-exec” {
 inline = [
 amazon-linux-extras install epel yum install ansible git -y”,
 ]
+/*
 provisioner “local-exec” {
   command = “sudo echo "${self.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory”,
 }
