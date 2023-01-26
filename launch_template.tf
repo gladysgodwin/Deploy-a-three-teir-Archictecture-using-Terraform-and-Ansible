@@ -10,7 +10,18 @@ resource "aws_launch_template" "gladys_asg" {
 aws_key_pair.mykeypair
 ]
 }
+variable "key_name" {default="mykey"}
+resource "tls_private_key" "privkey" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+resource "aws_key_pair" "mykeypair" {
+  key_name   = "${var.key_name}"
+  public_key = "${tls_private_key.privkey.public_key_openssh}"
+}
+/*
 resource "aws_key_pair" "mykeypair" {
 key_name   = "mykey"
 public_key = var.pubssh-key
 }
+*/
