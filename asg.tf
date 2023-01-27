@@ -11,6 +11,6 @@ resource "aws_autoscaling_group" "gladys_asg" {
   }
   
   provisioner "local-exec" {
-  command = sudo echo "${self.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory
-}
+  "command = sudo echo "${self.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory",
+  }
 }
