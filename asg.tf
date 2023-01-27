@@ -9,9 +9,13 @@ resource "aws_autoscaling_group" "gladys_asg" {
     id      = aws_launch_template.gladys_asg.id
     version = "$Latest"
   }
-  
   provisioner "local-exec" {
-    command = sudo echo "${self.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory,
-    
+    command = "echo ${self.private_ip} >> host-inventory"
   }
+  /*
+  provisioner "local-exec" {
+    command = 
+    sudo echo "${self.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory
+  }
+  */
 }
