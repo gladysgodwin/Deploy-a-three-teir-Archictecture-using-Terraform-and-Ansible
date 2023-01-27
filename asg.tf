@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "gladys_asg" {
     version = "$Latest"
   }
   provisioner "local-exec" {
-    command = "echo ${self.private_ip} >> host-inventory"
+    command = "echo ${self.public_ip} >> host-inventory"
   }
   /*
   provisioner "local-exec" {
