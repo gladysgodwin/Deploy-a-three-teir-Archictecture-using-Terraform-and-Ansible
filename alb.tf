@@ -5,7 +5,7 @@ resource "aws_lb" "my-alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.my_alb_sg.id]
-  subnets            = var.subnet_cidrs_public
+  subnets            = "${element(aws_subnet.love-public-subnt.*.id, count.index)}"
 }
 
 resource "aws_lb_listener" "lb_lst" {
