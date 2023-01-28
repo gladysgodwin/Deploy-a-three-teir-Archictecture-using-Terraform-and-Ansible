@@ -25,6 +25,6 @@ resource "aws_key_pair" "mykeypair" {
 resource "local_file" "myhosts" {
     filename = var.filepath
     content  = <<EOT
-    ${aws_instance.my-servers.public_ip}
+    "${aws_instance.my-servers[count.index].public_ip}"
     EOT
 }
