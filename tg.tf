@@ -1,3 +1,4 @@
+
 #Create an ALB target group
 
 resource "aws_lb_target_group" "my-alb-tg" {
