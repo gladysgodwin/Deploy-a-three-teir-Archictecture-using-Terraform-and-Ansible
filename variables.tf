@@ -1,57 +1,56 @@
 variable "region" {
-  type        = string
-  description = "my aws region"
+    type        = string
+    description = "my aws region"
 }
 
 variable "vpc_cidr_block" {
-  type        = string
-  description = "vpc cidr main block"
+    type        = string
+    description = "vpc cidr main block"
 }
 
 variable "vpc_name" {
-  type        = string
-  description = "my VPC name"
+    type        = string
+    description = "my VPC name"
 }
 
 variable "availability_zones" {
-  type        = list(any)
-  description = "availability zones"
+    type        = list
+    description = "availability zones"
 }
 
 variable "subnet_cidrs_public" {
-  type        = list(string)
-  description = "Public subnets cidrs"
+    type        = list
+    description = "Public subnets cidrs"
 }
 
-
 variable "subnet_cidrs_priv" {
-  type        = list(string)
-  description = "Private subnets cidrs"
+    type        = list
+    description = "Private subnets cidrs"
 }
 
 variable "igw_name" {
-  type        = string
-  description = "Internet gateway name"
+    type        = string
+    description = "Internet gateway name"
 }
 
 variable "pub-rt" {
-  type        = string
-  description = "Public route table name"
+    type        = string
+    description = "Public route table name"
 }
 
 variable "priv-rt" {
-  type        = string
-  description = "Private route table name"
+    type        = string
+    description = "Private route table name"
 }
 
 variable "priv-subnets_name" {
-  type        = string
-  description = "Private subnet name"
+    type        = string
+    description = "Private subnet name"
 }
 
 variable "public-subnets_name" {
-  type        = string
-  description = "Public subnet name"
+    type        = string
+    description = "Public subnet name"
 }
 
 variable "inbound_ports" {
@@ -89,4 +88,13 @@ variable "pubssh-key" {
   description = "public ssh key"
   sensitive   = true
 }
-variable "key_name" {default="mykey"}
+
+variable "pub-sub-id" {
+  type        = list(string)
+  description = "public subnets"
+}
+
+variable "priv-sub-id" {
+  type        = list(string)
+  description = "private subnets"
+}

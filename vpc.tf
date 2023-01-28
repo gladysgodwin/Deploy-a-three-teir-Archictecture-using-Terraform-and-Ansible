@@ -14,11 +14,11 @@ resource "aws_vpc" "love_vpc" {
 
 # Create Public subnets
 resource "aws_subnet" "love-public-subnt" {
-  count = length(var.subnet_cidrs_public)
+  count = "${length(var.subnet_cidrs_public)}"
 
-  vpc_id            = aws_vpc.love_vpc.id
-  cidr_block        = var.subnet_cidrs_public[count.index]
-  availability_zone = var.availability_zones[count.index]
+  vpc_id = aws_vpc.love_vpc.id
+  cidr_block = "${var.subnet_cidrs_public[count.index]}"
+  availability_zone = "${var.availability_zones[count.index]}"
 
   tags = {
     Name = var.public-subnets_name
@@ -27,11 +27,11 @@ resource "aws_subnet" "love-public-subnt" {
 
 # Create Private subnets
 resource "aws_subnet" "love-private-subnt" {
-  count = length(var.subnet_cidrs_priv)
+  count = "${length(var.subnet_cidrs_priv)}"
 
-  vpc_id            = aws_vpc.love_vpc.id
-  cidr_block        = var.subnet_cidrs_priv[count.index]
-  availability_zone = var.availability_zones[count.index]
+  vpc_id = aws_vpc.love_vpc.id
+  cidr_block = "${var.subnet_cidrs_priv[count.index]}"
+  availability_zone = "${var.availability_zones[count.index]}"
 
   tags = {
     Name = var.priv-subnets_name
@@ -43,7 +43,7 @@ resource "aws_subnet" "love-private-subnt" {
 
 resource "aws_internet_gateway" "love-igw" {
   vpc_id = aws_vpc.love_vpc.id
-
+  
   tags = {
     Name = var.igw_name
   }
@@ -58,18 +58,26 @@ resource "aws_route_table" "my_public_RT" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.love-igw.id
   }
-
+ /*
+  tags {
+    Name = var.pub-rt
+  }
+  */
 }
 
 resource "aws_route_table" "my_private_RT" {
   vpc_id = aws_vpc.love_vpc.id
-
+ /*
+  tags {
+    Name = var.priv-rt
+  }
+  */
 }
 
 # Create Public Subnet Association
 
 resource "aws_route_table_association" "public_sub_route_association" {
-  count = length(var.subnet_cidrs_public)
+  count          = "${length(var.subnet_cidrs_public)}"
 
   subnet_id      = "${element(aws_subnet.love-public-subnt.*.id, count.index)}"
   route_table_id = aws_route_table.my_public_RT.id
@@ -77,7 +85,7 @@ resource "aws_route_table_association" "public_sub_route_association" {
 
 # Create Private Subnet Association
 resource "aws_route_table_association" "priv_sub_route_association" {
-  count = length(var.subnet_cidrs_priv)
+  count          = "${length(var.subnet_cidrs_priv)}"
 
   subnet_id      = "${element(aws_subnet.love-private-subnt.*.id, count.index)}"
   route_table_id = aws_route_table.my_private_RT.id
