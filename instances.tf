@@ -3,7 +3,7 @@ resource "aws_instance" "my-servers" {
     instance_type   = var.instance_type
     count           = 3
     subnet_id       = "${element(aws_subnet.love-public-subnt.*.id, count.index)}"
-    security_groups = aws_security_group.my_alb_sg.id 
+    security_groups = "${aws_security_group.my_alb_sg.id}"
     
     tags = {
         Name = "love"
@@ -24,7 +24,7 @@ resource "aws_key_pair" "mykeypair" {
 
 resource "local_file" "myhosts" {
     count = 3
-    
+
     filename = var.filepath
     content  = <<EOT
     "${aws_instance.my-servers[count.index].public_ip}"
