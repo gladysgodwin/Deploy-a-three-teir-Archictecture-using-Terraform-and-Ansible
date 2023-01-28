@@ -23,5 +23,5 @@ resource "aws_key_pair" "mykeypair" {
 }
 
 provisioner "local-exec" {
-  command = "echo "${aws_instance.my-servers.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory",
+  command = "echo "${aws_instance.my-servers.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory"
 }
