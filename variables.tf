@@ -98,3 +98,7 @@ variable "priv-sub-id" {
   type        = list(string)
   description = "private subnets"
 }
+variable "filepath" {
+  type        = string
+  description = "file path for host inventory"
+}

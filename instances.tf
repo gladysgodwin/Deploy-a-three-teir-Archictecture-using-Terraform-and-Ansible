@@ -22,6 +22,9 @@ resource "aws_key_pair" "mykeypair" {
   public_key = "${tls_private_key.privkey.public_key_openssh}"
 }
 
-provisioner "local-exec" {
-  command = "echo "${aws_instance.my-servers.public_ip}" > /root/Deploy-a-three-teir-Archictecture-using-Terraform-and-Ansible/host-inventory"
+resource "local_file" "myhosts" {
+    filename = var.filepath
+    content  = <<EOT
+    ${aws_instance.my-servers.public_ip}
+    EOT
 }
