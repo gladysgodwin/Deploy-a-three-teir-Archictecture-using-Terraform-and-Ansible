@@ -1,13 +1,11 @@
 #Create Load Balancer
 
 resource "aws_lb" "my-alb" {
-  count = "${length(var.subnet_cidrs_public)}"
-  
   name               = "my-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.my_alb_sg.id]
-  subnets            = "${element(aws_subnet.love-public-subnt.*.id, count.index)}"
+  subnets            = "${var.pub-sub-id}"
 }
 
 resource "aws_lb_listener" "lb_lst" {
