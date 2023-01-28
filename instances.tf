@@ -5,7 +5,7 @@ resource "aws_instance" "my-servers" {
     subnet_id       = "${element(aws_subnet.love-public-subnt.*.id, count.index)}"
     security_groups = aws_security_group.my_alb_sg.id 
     
-    tags {
+    tags = {
         Name = "love"
     }
 
