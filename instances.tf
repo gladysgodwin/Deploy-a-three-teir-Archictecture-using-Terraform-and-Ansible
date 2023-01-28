@@ -23,6 +23,8 @@ resource "aws_key_pair" "mykeypair" {
 }
 
 resource "local_file" "myhosts" {
+    count = 3
+    
     filename = var.filepath
     content  = <<EOT
     "${aws_instance.my-servers[count.index].public_ip}"
